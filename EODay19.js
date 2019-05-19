@@ -1,4 +1,5 @@
-    var navigation = {
+  // Previously given Global Objects
+  var navigation = {
       x: -2,
       y: 4,
       z: 7,
@@ -22,15 +23,20 @@
       message: "Bugs are cool.",
       beacon: false
     };
+  
 
+// Day 1: Write a function called powerOn() to change the 'powerOn' property of the ship object from false to true
 function powerOn(){
  ship.powerOn = 'true';
 }
 
+// Day 2: Write a function called countModules() to reveal the number of modules there are to choose from
+// availableModules array, each module an object, with four properties: name stored as a string, size stored as an integer, enabled and essential stored as a boolean
 function countModules(){
   return availableModules.length;
 }
 
+//Day 3: Write a function called countEssential() to count the number of modules in the availableModules array with the essential flag set as true
 function countEssential(){
   var count = 0;
   for (i=0; i <availableModules.length; i++){
@@ -67,6 +73,9 @@ function findShipModuleIndex(name){
   }
 }*/
 
+/* Day 4: Write a function called loadModules(index), once receiving the index parameter, will:
+
+*/
 function loadModule(index) { 
   availableModules[index].enabled = 'true';
   ship.modules.push(availableModules[index]);
@@ -105,7 +114,55 @@ function calibrateX(){
   }
 }
 
-calibrateX();
+function calibrateY(){
+  for (i = 0; i < 60; i++){
+   var signal = checkSignal();
+   if (typeof signal === 'number'){
+   navigation.y = signal;
+   }
+  }
+}
+
+function calibrateZ(){
+  for (i = 0; i < 60; i++){
+   var signal = checkSignal();
+   if (typeof signal === 'number'){
+   navigation.z = signal;
+   }
+  }
+}
+
+function calibrate(){
+  calibrateX();
+  calibrateY();
+  calibrateZ();
+}
+
+function setSpeed(speed){
+  var temp = parseInt(speed);
+  if (temp >= 0){
+    navigation.speed = temp;
+  }
+}
+
+function activeAntenna(){
+  ship.antenna.active = 'true';
+}
+
+function sendBroadcast(){
+  for (i = 0; i < 100; i++){
+    broadcast();
+  }
+}
+
+function configureBroadcast(){
+  setFrequency();
+  activeAntenna();
+  sendBroadcast();
+}
+
+configureBroadcast();
+
 resetLARRY();
 
 // loadModule(FindLifeSupportModule());
