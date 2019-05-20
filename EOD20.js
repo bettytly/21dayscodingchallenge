@@ -186,6 +186,19 @@ function configureBroadcast(){
   sendBroadcast();
 }
 
+// Day 20: Write a function called decodeMessage(message) that takes in a coded message and changes numbers back to their respective vowels and return the decoded message
+// Sample Message: "th1s 1s 4 t3st. th1s 1s 0nl5 4 t3st. 1f th1s w3r3 4 r34l m3ss4g3, 502 w021d g3t s0m3th1ng m34n1ngf2l."
+// .replace() is a built-in JavaScript method, /g represents global targets 
+function decodeMessage(message){
+  let myStr = message;
+  myStr = myStr.replace(/1/g, 'i');
+  myStr = myStr.replace(/2/g, 'u');
+  myStr = myStr.replace(/3/g, 'e');
+  myStr = myStr.replace(/4/g, 'a');
+  myStr = myStr.replace(/5/g, 'y');
+  myStr = myStr.replace(/0/g, 'o');
+  return myStr;
+}
 
 
 // Calling the functions below
