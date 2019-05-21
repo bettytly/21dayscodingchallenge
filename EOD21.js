@@ -200,8 +200,27 @@ function decodeMessage(message){
   return myStr;
 }
 
+/* Day 21: Write a function called returnToEarth() that:
+- Call the built-in function broadcast() three times, each passing the x, y, z parameter
+- Decode the returned message using the decodeMessage() function 
+- Change the decoded-hex coordinate to an integer using parseInt()
+- Set the navigation object's x, y and z to the integer coordinates
+*/
+function returnToEarth(){
+  var xsignal = broadcast("x");
+  var ysignal = broadcast("y");
+  var zsignal = broadcast("z");
+  var xdecoded = decodeMessage(xsignal);
+  var ydecoded = decodeMessage(ysignal);
+  var zdecoded = decodeMessage(zsignal);
+  navigation.x = parseInt(xdecoded, 16);
+  navigation.y = parseInt(ydecoded, 16);
+  navigation.z = parseInt(zdecoded, 16);
+}
+
 
 // Calling the functions below
+returnToEarth();
 resetLARRY();
 
 // loadModule(FindLifeSupportModule());
